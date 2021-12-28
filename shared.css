@@ -14,6 +14,10 @@ body {
 main {
   min-height: calc(100vh - 3.5rem - 8rem);
   margin-top: 3.5rem;
+  display: grid;
+  grid-template-areas: "head"
+                       "main"
+                       "footer";
 }
 
 .backdrop {
@@ -109,7 +113,9 @@ main {
   color: white;
   border-bottom: 5px solid white;
 }
-
+.main-nav__item--cta {
+  animation: starting 200ms 3ms 8 alternate;
+}
 .main-nav__item--cta a,
 .mobile-nav__item--cta a {
   color: white;
@@ -234,12 +240,15 @@ main {
 
 .open {
     display: block !important;
+     opacity: 1 !important;
+    transform:translateY(0) !important; 
 }
 
 @media (min-width: 40rem) {
   .main-footer__link {
     
     margin: 0 1rem;
+    grid-area: footer;
   }
 
 .main-footer__links {
@@ -248,5 +257,15 @@ main {
   align-items: center;
   justify-content: center;
 
+}}
+@keyframes starting {
+  from{
+    transform: rotateZ(0deg);
+  }
+  to{
+    transform: rotateZ(10deg);
+  }
 }
-}
+  
+
+
